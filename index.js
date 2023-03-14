@@ -1,5 +1,4 @@
 const form = document.querySelector('.form');
-const showName = document.querySelector('.showName');
 const userName = document.querySelector('.userName');
 const userPic = document.querySelector('.userPic');
 const comment = document.querySelector('.comment');
@@ -19,14 +18,14 @@ const imageArray = [
 
 
 function checkName() {
-	const checkName = userName.value[0].toUpperCase() + userName.value.slice(1).toLowerCase();
-	return checkName;
+	const checkedName = userName.value[0].toUpperCase() + userName.value.slice(1).toLowerCase();
+	return checkedName;
 	
 }
 
 function checkSpam() {
-	let checkCom = comment.value.replace(/viagra|XXX/gi, '***');
-	return checkCom;
+	let checkedCom = comment.value.replace(/viagra|XXX/gi, '***');
+	return checkedCom;
   }
 
 function generateRandomPicture(Array){
@@ -73,21 +72,18 @@ function pushMessage() {
 	  }
 	message.append(messageUserName);
 
-	// text
+	// comment
 	const messageText = document.createElement("p");
 	messageText.innerHTML = checkSpam()
 	message.append(messageText);
- 
 }
 
 function addComment() {
 	pushMessage();
-	userName.value = "";
+	userName.value ="";
 	comment.value = "";
 	userPic.value = "";
 }
 
 button.addEventListener('click', addComment);
 
-
-	
